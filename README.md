@@ -11,6 +11,12 @@ In order to make the assessment as fair as possible, there is a unified command-
 
 Replace CliAdapterYatzy1 with CliAdapterYatzy2 or CliAdapterYatzy3, and modify the input file as needed.
 
+Using JUnit
+===========
+
+There is one unit test to start you off, in "YatzyTest" under src/test/java
+
+
 Using TextTest
 ==============
 
