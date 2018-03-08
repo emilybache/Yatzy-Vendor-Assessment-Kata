@@ -6,8 +6,7 @@
     <artifactId>Yatzy</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>Yatzy</name>
-    <description>An Approval Testing Kata. This is the Java version, set up to be tested with TextTest.</description>
-    <url>https://github.com/emilybache/Yatzy-Approval-Kata</url>
+    <url>https://github.com/emilybache/Yatzy-Vendor-Assessment-Kata</url>
 
     <properties>
         <jdk.version>1.7</jdk.version>
