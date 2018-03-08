@@ -1,11 +1,6 @@
 package org.yatzy.cli;
 
-import org.yatzy.RollInput;
-
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 class InputReader {
 

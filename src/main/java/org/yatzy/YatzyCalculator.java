@@ -6,5 +6,5 @@ public interface YatzyCalculator {
 
     List<String> validCategories();
     RollInput parseDiceAndCategory(String inputLine);
-    int score(List<Integer> dice, YatzyCategory category);
+    int score(List<Integer> dice, String category);
 }

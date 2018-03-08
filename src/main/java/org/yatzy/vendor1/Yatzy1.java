@@ -1,4 +1,7 @@
-package org.yatzy;
+package org.yatzy.vendor1;
+
+import org.yatzy.RollInput;
+import org.yatzy.YatzyCalculator;
 
 import java.util.Arrays;
 import java.util.List;
@@ -8,7 +11,7 @@ public class Yatzy1 implements YatzyCalculator {
 
     @Override
     public List<String> validCategories() {
-        return Arrays.stream(YatzyCategory.values()).map(elt -> elt.toString()).collect(Collectors.toList());
+        return Arrays.stream(Yatzy1Category.values()).map(elt -> elt.toString()).collect(Collectors.toList());
     }
 
     @Override
@@ -18,12 +21,13 @@ public class Yatzy1 implements YatzyCalculator {
         List<Integer> dice = Arrays.asList(numbers).stream()
                 .map(elt -> Integer.parseInt(elt))
                 .collect(Collectors.toList());
-        YatzyCategory category = YatzyCategory.valueOf(fields[1]);
-        return new RollInput(line, dice, category);
+        Yatzy1Category category = Yatzy1Category.valueOf(fields[1]);
+        return new RollInput(line, dice, category.name());
     }
 
     @Override
-    public int score(List<Integer> dice, YatzyCategory category) {
+    public int score(List<Integer> dice, String categoryStr) {
+        Yatzy1Category category = Yatzy1Category.valueOf(categoryStr);
         return dice.stream().mapToInt(Integer::intValue).sum();
     }
 }

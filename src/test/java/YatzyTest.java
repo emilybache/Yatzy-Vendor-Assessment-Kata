@@ -1,11 +1,10 @@
 import org.junit.Before;
 import org.junit.Test;
-import org.yatzy.Yatzy1;
+import org.yatzy.vendor1.Yatzy1;
 import org.yatzy.YatzyCalculator;
-import org.yatzy.YatzyCategory;
+import org.yatzy.vendor1.Yatzy1Category;
 
 import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -18,13 +17,13 @@ public class YatzyTest {
         calculator = new Yatzy1();
     }
 
-    private void assertScore(int expected, YatzyCategory category, Integer... dice) {
+    private void assertScore(int expected, String category, Integer... dice) {
         assertEquals(expected, calculator.score(Arrays.asList(dice), category));
     }
 
     @Test
     public void chanceSumsTheDice() {
-        assertScore(5, YatzyCategory.chance, 1,1,1,1,1);
+        assertScore(5, "chance", 1,1,1,1,1);
     }
 
 

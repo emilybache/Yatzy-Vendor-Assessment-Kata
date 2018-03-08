@@ -1,6 +1,6 @@
 package org.yatzy.cli;
 
-import org.yatzy.Yatzy1;
+import org.yatzy.vendor1.Yatzy1;
 
 public class CliAdapterYatzy1 {
 

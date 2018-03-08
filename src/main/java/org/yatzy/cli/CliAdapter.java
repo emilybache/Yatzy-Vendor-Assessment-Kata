@@ -3,8 +3,6 @@ package org.yatzy.cli;
 import org.yatzy.RollInput;
 import org.yatzy.YatzyCalculator;
 
-import java.util.Arrays;
-
 public class CliAdapter {
 
     public static void main(String[] args, YatzyCalculator yatzy) {
