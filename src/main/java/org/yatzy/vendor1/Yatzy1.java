@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 public class Yatzy1 implements YatzyCalculator {
 
-    public static final List<Integer> DICE_VALUES = Arrays.asList(6, 5, 4, 3, 2, 1);
+    static final List<Integer> DICE_VALUES = Arrays.asList(6, 5, 4, 3, 2, 1);
 
     @Override
     public List<String> validCategories() {
@@ -58,7 +58,7 @@ public class Yatzy1 implements YatzyCalculator {
 
     int nofakind(int n, List<Integer> dice) {
         Map<Integer, Integer> frequencies = frequencies(dice);
-        for (int i : Arrays.asList(6,5,4,3,2,1)) {
+        for (int i : DICE_VALUES) {
             if (frequencies.get(i) >= n) {
                 return i*n;
             }
@@ -101,7 +101,7 @@ public class Yatzy1 implements YatzyCalculator {
         return numberFrequency(5, dice);
     }
     public int sixes(List<Integer> dice) {
-        return numberFrequency(6, dice);
+        return numberFrequency(5, dice);
     }
 
     public int pair(List<Integer> dice) {
@@ -133,8 +133,8 @@ public class Yatzy1 implements YatzyCalculator {
     public int twopairs(List<Integer> dice) {
         Map<Integer, Integer> frequencies = frequencies(dice);
         int score = 0;
-        if (frequencies(dice).values().stream().filter(f -> f >= 2).collect(Collectors.toList()).size() == 2) {
-            for (int i : DICE_VALUES) {
+        if (frequencies(dice).values().stream().filter(f -> f == 2).collect(Collectors.toList()).size() == 2) {
+            for (int i : Arrays.asList(5, 4, 3, 2, 1, 6)) {
                 if (frequencies.get(i) >= 2) {
                     score += i*2;
                 }
