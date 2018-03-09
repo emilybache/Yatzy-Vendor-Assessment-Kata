@@ -23,8 +23,8 @@ public class Yatzy1 implements YatzyCalculator {
     public RollInput parseDiceAndCategory(String line) {
         String[] fields = line.split(" ");
         String[] numbers = fields[0].split(",");
-        List<Integer> dice = Arrays.asList(numbers).stream()
-                .map(elt -> Integer.parseInt(elt))
+        List<Integer> dice = Arrays.stream(numbers)
+                .map(Integer::parseInt)
                 .collect(Collectors.toList());
         Yatzy1Category category = Yatzy1Category.valueOf(fields[1]);
         return new RollInput(line, dice, category.name());
