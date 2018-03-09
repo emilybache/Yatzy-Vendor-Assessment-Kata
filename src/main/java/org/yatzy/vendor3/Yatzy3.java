@@ -2,7 +2,6 @@ package org.yatzy.vendor3;
 
 import org.yatzy.RollInput;
 import org.yatzy.YatzyCalculator;
-import org.yatzy.vendor2.Yatzy2;
 
 import java.util.*;
 import java.util.stream.Collectors;
