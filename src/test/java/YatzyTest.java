@@ -5,12 +5,13 @@ import org.yatzy.YatzyCalculator;
 import org.yatzy.vendor1.Yatzy1Category;
 
 import java.util.Arrays;
+import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 
 public class YatzyTest {
 
-    private YatzyCalculator calculator;
+    private Yatzy1 calculator;
 
     @Before
     public void setUp() {
