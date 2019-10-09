@@ -1,29 +1,43 @@
 Yatzy Vendor Assessment Kata
 ============================
 
-Your employer, "Fun & Games AB" are developing a new product. They have decided to outsource part of the development to a third party vendor. There are three competing vendors. Your job is to assess a sample of their work and recommend which vendor to select. The three samples have been anonymized and are called Yatzy1, Yatzy2 and Yatzy3. All three of them should implement the Yatzy rules listed in yatzy_rules.md.
+Your employer, "Fun & Games AB" are developing a new product. They have decided to outsource 
+part of the development to a third party vendor. There are three competing vendors. Your 
+job is to assess a sample of their work and recommend which vendor to select. The three samples 
+have been anonymized and are called Yatzy1, Yatzy2 and Yatzy3. 
 
-You are free to perform any kind of testing you wish on the three competing implementations, when making your assessment.
+You are free to perform any kind of testing you wish on the three competing implementations, 
+when making your assessment.
 
-In order to make the assessment as fair as possible, there is a unified command-line interface you can use to access any one of the implementations. You can run the main class through your IDE, or via maven, for example:
+Requirements
+------------
+All three implementations should:
 
-	mvn exec:java -Dexec.mainClass="org.yatzy.cli.CliAdapterYatzy1" < src/it/texttest/Chance/stdin.yatzy
+- follow the Yatzy scoring rules explained in [yatzy_rules.md](https://github.com/emilybache/Yatzy-Vendor-Assessment-Kata/blob/master/yatzy_rules.md)
+- calculate the Yatzy score for a given roll of 5 dice in a given category. 
+- provide a list of available categories.
+- accept input in the format: "d1,d2,d3,d4,d5 category" where d1 etc are the dice values and 'category' is the name of the category to score
 
-Replace CliAdapterYatzy1 with CliAdapterYatzy2 or CliAdapterYatzy3, and modify the input file as needed.
+Running on the Command Line
+---------------------------
 
-Using JUnit
-===========
+Each implementation has a command-line interface. You can run it via maven.
 
-There is one unit test to start you off, in "YatzyTest" under src/test/java
+View help text:
 
+    mvn exec:java -Dexec.mainClass="org.yatzy.cli.CliAdapterYatzy1" -Dexec.args="--help"
 
-Using TextTest
-==============
+Calculate scores for input found in the stdin_sample.txt file:
 
-Included in the maven build are (incomplete) regression tests using [TextTest](http://texttest.org). I recommend that you inspect the test results using the TextTest IDE. You can start it with this command:
+	mvn exec:java -Dexec.mainClass="org.yatzy.cli.CliAdapterYatzy1" < src/test/resources/stdin_sample.txt
 
-	texttest -a yatzy -c $PWD -d $PWD/src/it/texttest 
+Replace "CliAdapterYatzy1" with "CliAdapterYatzy2" or "CliAdapterYatzy3" to test the three competing implementations.
+Modify the input file as needed for testing.
 
-Note that $PWD should automatically expand to the complete path to the current working directory. If it does not, insert it by hand instead.
+Writing Tests Using JUnit
+-------------------------
 
-You can switch version from Yatzy1 to Yatzy2 and Yatzy3 by changing the 'executable' listed in src/it/texttest/config.yatzy.
+This is another option for writing tests. There is some test code to start you off, in "Vendor1Test" under `src/test/java`.
+It uses a file to parameterize the tests. Look at 'valid_rolls_and_categories.csv' under `src/test/resources`
+This file contains the input the yatzy calculator should accept on the command line, and the expected score.
+
