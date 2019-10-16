@@ -20,9 +20,6 @@ public class Vendor1Test {
         calculator = new Yatzy1();
     }
 
-    @Test
-    public void categories()
-
     @ParameterizedTest
     @CsvFileSource(resources = "/valid_rolls_and_categories.csv", delimiter = ';')
     public void valid_rolls_and_categories(String input, int expected) {
