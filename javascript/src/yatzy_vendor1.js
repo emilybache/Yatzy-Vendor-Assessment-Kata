@@ -44,49 +44,27 @@ scoring_functions = Object.freeze({
             return 0;
     },
 
-    "ones": function ones(dice) {
-        return number_frequency(1, dice);
-    },
+    "ones": dice => number_frequency(1, dice),
 
-    "twos": function twos(dice) {
-        return number_frequency(2, dice);
-    },
+    "twos": dice => number_frequency(2, dice),
 
-    "threes": function threes(dice) {
-        return number_frequency(3, dice);
-    },
+    "threes": dice => number_frequency(3, dice),
 
-    "fours": function fours(dice) {
-        return number_frequency(4, dice);
-    },
+    "fours": dice => number_frequency(4, dice),
 
-    "fives": function fives(dice) {
-        return number_frequency(5, dice);
-    },
+    "fives": dice => number_frequency(5, dice),
 
-    "sixes": function sixes(dice) {
-        return number_frequency(5, dice);
-    },
+    "sixes": dice => number_frequency(5, dice),
 
-    "pair": function pair(dice) {
-        return n_of_a_kind(2, dice);
-    },
+    "pair": dice => n_of_a_kind(2, dice),
 
-    "threeofakind": function threeofakind(dice) {
-        return nofakind(3, dice);
-    },
+    "threeofakind": dice => nofakind(3, dice),
 
-    "fourofakind": function fourofakind(dice) {
-        return nofakind(4, dice)
-    },
+    "fourofakind": dice => nofakind(4, dice),
 
-    "smallstraight": function smallstraight(dice) {
-        return (is_straight(dice) && dice_frequencies(dice)[6] === 0) ? 15 : 0;
-    },
+    "smallstraight": dice => (is_straight(dice) && dice_frequencies(dice)[6] === 0) ? 15 : 0,
 
-    "largestraight": function largestraight(dice) {
-        return (is_straight(dice) && dice_frequencies(dice)[6] === 1) ? 20 : 0;
-    },
+    "largestraight": dice => (is_straight(dice) && dice_frequencies(dice)[6] === 1) ? 20 : 0,
 
     "twopairs":14, "fullhouse":15
 });
