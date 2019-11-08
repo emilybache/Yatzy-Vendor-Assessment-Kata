@@ -37,3 +37,8 @@ test('score straight', () => {
     expect(yatzy1.score([2,3,4,5,6], "largestraight")).toBe(20);
     expect(yatzy1.score([2,3,4,5,2], "largestraight")).toBe(0);
 });
+
+test('score two pairs', () => {
+    expect(yatzy1.score([1,2,2,3,4], "twopairs")).toBe(0);
+    expect(yatzy1.score([1,2,2,4,4], "twopairs")).toBe(12);
+});

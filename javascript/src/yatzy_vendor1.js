@@ -66,7 +66,18 @@ scoring_functions = Object.freeze({
 
     "largestraight": dice => (is_straight(dice) && dice_frequencies(dice)[6] === 1) ? 20 : 0,
 
-    "twopairs":14, "fullhouse":15
+    "twopairs": function twopairs(dice) {
+        let score = 0;
+        frequencies = dice_frequencies(dice);
+        if (Object.values(frequencies).filter( (n) => n === 2).length === 2) {
+            [6, 5, 4, 3, 2, 1].map( (dice_value) => {
+                if (frequencies[dice_value] >= 2)
+                    score += 2*dice_value;
+            } );
+        }
+        return score;
+    },
+    "fullhouse":15
 });
 
 function valid_categories() {
