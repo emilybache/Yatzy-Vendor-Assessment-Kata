@@ -24,3 +24,9 @@ test('score yatzy', () => {
 test('score ones', () => {
     expect(yatzy1.score([1,2,2,2,2], "ones")).toBe(1);
 });
+
+test('score pair', () => {
+    expect(yatzy1.score([1,2,2,3,4], "pair")).toBe(4);
+    expect(yatzy1.score([1,2,3,4,5], "pair")).toBe(0);
+    expect(yatzy1.score([1,2,2,5,5], "pair")).toBe(10);
+});
