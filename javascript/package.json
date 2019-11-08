@@ -1,0 +1,29 @@
+{
+  "name": "yazty-vendor-assessment-kata",
+  "jest": {
+    "verbose": true
+  },
+  "version": "1.0.0",
+  "description": "exercise to assess three competing vendors of yazy game engine",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emilybache/Yatzy-Vendor-Assessment-Kata.git"
+  },
+  "keywords": [
+    "kata",
+    "refactor"
+  ],
+  "license": "MIT",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/emilybache/Yatzy-Vendor-Assessment-Kata/issues"
+  },
+  "homepage": "https://github.com/emilybache/Yatzy-Vendor-Assessment-Kata",
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "jest": "^24.8.0"
+  }
+}

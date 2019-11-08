@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`all categories 1`] = `
+Array [
+  "chance",
+  "yatzy",
+  "ones",
+  "twos",
+  "threes",
+  "fours",
+  "fives",
+  "sixes",
+  "pair",
+  "threeofakind",
+  "fourofakind",
+  "smallstraight",
+  "largestraight",
+  "twopairs",
+  "fullhouse",
+]
+`;
