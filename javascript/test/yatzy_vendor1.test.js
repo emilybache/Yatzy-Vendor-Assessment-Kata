@@ -7,11 +7,6 @@ test('all categories', () => {
     expect(categories).toMatchSnapshot();
 });
 
-test('dice frequencies', () => {
-   expect(yatzy1.dice_frequencies([1,2,2,2,2])).toEqual({1:1, 2:4, 3:0, 4:0, 5:0, 6:0});
-   expect(yatzy1.dice_frequencies([6,3,5,2,1])).toEqual({1:1, 2:1, 3:1, 4:0, 5:1, 6:1});
-});
-
 test('score chance', () => {
    expect(yatzy1.score([1,2,2,2,2], "chance")).toBe(9);
 });
@@ -41,4 +36,10 @@ test('score straight', () => {
 test('score two pairs', () => {
     expect(yatzy1.score([1,2,2,3,4], "twopairs")).toBe(0);
     expect(yatzy1.score([1,2,2,4,4], "twopairs")).toBe(12);
+});
+
+test('score full house', () => {
+    expect(yatzy1.score([1,2,2,3,4], "fullhouse")).toBe(0);
+    expect(yatzy1.score([1,2,2,4,4], "fullhouse")).toBe(0);
+    expect(yatzy1.score([2,2,2,4,4], "fullhouse")).toBe(14);
 });

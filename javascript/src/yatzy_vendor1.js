@@ -1,12 +1,13 @@
 
+function score(dice, category) {
+    return scoring_functions[category](dice);
+}
+
+
 function dice_frequencies(dice) {
     let answer = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0};
     dice.forEach(number => answer[number]++);
     return answer
-}
-
-function score(dice, category) {
-    return scoring_functions[category](dice);
 }
 
 function number_frequency(number, dice) {
@@ -29,11 +30,15 @@ function is_straight(dice) {
     return Object.values(dice_frequencies(dice)).filter( (n) => n === 1).length === 5
 }
 
+function sum(dice) {
+    answer = 0;
+    dice.forEach(number => answer += number);
+    return answer;
+}
+
 scoring_functions = Object.freeze({
     "chance": function chance(dice) {
-        sum = 0;
-        dice.forEach(number => sum += number);
-        return sum;
+        return sum(dice);
     },
 
     "yatzy": function yatzy(dice) {
@@ -77,7 +82,14 @@ scoring_functions = Object.freeze({
         }
         return score;
     },
-    "fullhouse":15
+    "fullhouse": function fullhouse(dice) {
+        const frequencies = dice_frequencies(dice);
+        if (Object.values(frequencies).filter( (n) => n === 3).length === 1 &&
+                Object.values(frequencies).filter( (n) => n === 2).length === 1)
+            return sum(dice);
+        else
+            return 0;
+    }
 });
 
 function valid_categories() {
@@ -87,6 +99,5 @@ function valid_categories() {
 
 module.exports = {
     valid_categories: valid_categories,
-    dice_frequencies: dice_frequencies,
     score: score
 };
