@@ -30,3 +30,10 @@ test('score pair', () => {
     expect(yatzy1.score([1,2,3,4,5], "pair")).toBe(0);
     expect(yatzy1.score([1,2,2,5,5], "pair")).toBe(10);
 });
+
+test('score straight', () => {
+    expect(yatzy1.score([1,2,2,2,2], "smallstraight")).toBe(0);
+    expect(yatzy1.score([1,2,3,4,5], "smallstraight")).toBe(15);
+    expect(yatzy1.score([2,3,4,5,6], "largestraight")).toBe(20);
+    expect(yatzy1.score([2,3,4,5,2], "largestraight")).toBe(0);
+});

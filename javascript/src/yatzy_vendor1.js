@@ -25,6 +25,10 @@ function n_of_a_kind(n, dice) {
     return scores.length > 0 ? scores[0] : 0;
 }
 
+function is_straight(dice) {
+    return Object.values(dice_frequencies(dice)).filter( (n) => n === 1).length === 5
+}
+
 scoring_functions = Object.freeze({
     "chance": function chance(dice) {
         sum = 0;
@@ -75,8 +79,15 @@ scoring_functions = Object.freeze({
     "fourofakind": function fourofakind(dice) {
         return nofakind(4, dice)
     },
-    
-    "smallstraight":12, "largestraight":13,
+
+    "smallstraight": function smallstraight(dice) {
+        return (is_straight(dice) && dice_frequencies(dice)[6] === 0) ? 15 : 0;
+    },
+
+    "largestraight": function largestraight(dice) {
+        return (is_straight(dice) && dice_frequencies(dice)[6] === 1) ? 20 : 0;
+    },
+
     "twopairs":14, "fullhouse":15
 });
 
