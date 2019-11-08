@@ -10,7 +10,7 @@ function dice_frequencies(dice) {
     return answer
 }
 
-function number_frequency(number, dice) {
+function number_times_frequency(number, dice) {
     return dice_frequencies(dice)[number]*number;
 }
 
@@ -42,24 +42,21 @@ scoring_functions = Object.freeze({
     },
 
     "yatzy": function yatzy(dice) {
-        let frequencies = Object.values(dice_frequencies(dice));
-        if (frequencies.find((n) => n === 5))
-            return 50;
-        else
-            return 0;
+        const frequencies = Object.values(dice_frequencies(dice));
+        return frequencies.find((n) => n === 5) ? 50 : 0;
     },
 
-    "ones": dice => number_frequency(1, dice),
+    "ones": dice => number_times_frequency(1, dice),
 
-    "twos": dice => number_frequency(2, dice),
+    "twos": dice => number_times_frequency(2, dice),
 
-    "threes": dice => number_frequency(3, dice),
+    "threes": dice => number_times_frequency(3, dice),
 
-    "fours": dice => number_frequency(4, dice),
+    "fours": dice => number_times_frequency(4, dice),
 
-    "fives": dice => number_frequency(5, dice),
+    "fives": dice => number_times_frequency(5, dice),
 
-    "sixes": dice => number_frequency(5, dice),
+    "sixes": dice => number_times_frequency(5, dice),
 
     "pair": dice => n_of_a_kind(2, dice),
 
@@ -84,8 +81,8 @@ scoring_functions = Object.freeze({
     },
     "fullhouse": function fullhouse(dice) {
         const frequencies = dice_frequencies(dice);
-        if (Object.values(frequencies).filter( (n) => n === 3).length === 1 &&
-                Object.values(frequencies).filter( (n) => n === 2).length === 1)
+        if (Object.values(frequencies).find( (n) => n === 3) &&
+                Object.values(frequencies).find( (n) => n === 2))
             return sum(dice);
         else
             return 0;
