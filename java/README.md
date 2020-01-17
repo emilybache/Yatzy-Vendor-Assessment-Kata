@@ -1,11 +1,18 @@
 Yazy Vendor Assessment Kata Java Version
 =========================================
 
-In this folder you find java code and a maven project. Each implementation has a command-line interface. You can run it via maven.
+In this folder you find java code and a maven/gradle project. 
+Each implementation has a command-line interface. 
+
+## Maven
+
+Build the project:
+
+	mvn verify
 
 View help text:
 
-    mvn exec:java -Dexec.mainClass="org.yatzy.cli.CliAdapterYatzy1" -Dexec.args="--help"
+	mvn exec:java -Dexec.mainClass="org.yatzy.cli.CliAdapterYatzy1" -Dexec.args="--help"
 
 Calculate scores for input found in the stdin_sample.txt file:
 
@@ -13,6 +20,24 @@ Calculate scores for input found in the stdin_sample.txt file:
 
 Replace "CliAdapterYatzy1" with "CliAdapterYatzy2" or "CliAdapterYatzy3" to test the three competing implementations.
 Modify the input file as needed for testing.
+
+## Gradle
+
+Build the project:
+
+	gradlew build
+
+View help text:   
+
+	java -jar build/libs/Yatzy-Vendor-Assessment-Kata-1.0.0-SNAPSHOT.jar --help
+
+Calculate scores for input found in the stdin_sample.txt file:
+
+	java -jar build/libs/Yatzy-Vendor-Assessment-Kata-1.0.0-SNAPSHOT.jar < src/test/resources/stdin_sample.txt
+
+
+Replace "CliAdapterYatzy1" with "CliAdapterYatzy2" or "CliAdapterYatzy3" in build.gradle to test the three competing implementations.
+Don't forget to rebuild the project!
 
 Writing Tests Using JUnit
 -------------------------
