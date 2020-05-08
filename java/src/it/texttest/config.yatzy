@@ -1,6 +1,9 @@
 # Full path to the System Under Test (or Java Main Class name)
-interpreter:java
-executable:org.yatzy.cli.CliAdapterYatzy1
+#interpreter:java
+#executable:org.yatzy.cli.CliAdapterYatzy1
+
+interpreter:python3
+executable:${TEXTTEST_HOME}/python/vendor1.py
 
 # Naming scheme to use for files for stdin,stdout and stderr
 filename_convention_scheme:standard
@@ -10,7 +13,7 @@ full_name:Yatzy
 
 default_checkout:yatzy
 
-extra_search_directory:${TEXTTEST_CHECKOUT}/target/texttest_extra_config/
+#extra_search_directory:${TEXTTEST_CHECKOUT}/target/texttest_extra_config/
 
 # Do replace these with your favourite tools
 diff_program:meld

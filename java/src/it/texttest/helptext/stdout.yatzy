@@ -1,0 +1,13 @@
+Yatzy calculator program.
+
+You should pass dice rolls to standard input, formatted as one roll of five dice followed by the category to score:
+
+1,2,3,4,5 <category>
+1,2,2,3,3 <category>
+
+where <category> should be one of:
+
+[chance, yatzy, ones, twos, threes, fours, fives, sixes, pair, threeofakind, fourofakind, smallstraight, largestraight, twopairs, fullhouse]
+
+This program will then print the calculated score to standard output, and any error messages to standard error.
+

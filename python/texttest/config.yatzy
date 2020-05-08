@@ -1,0 +1,13 @@
+interpreter:python3
+executable:${TEXTTEST_HOME}/vendor1.py
+
+# Naming scheme to use for files for stdin,stdout and stderr
+filename_convention_scheme:standard
+
+# Expanded name to use for application
+full_name:Yatzy
+
+
+# Do replace these with your favourite tools
+diff_program:meld
+view_program:subl

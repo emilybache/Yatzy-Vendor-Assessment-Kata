@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/emily/workspace/training_materials/Yatzy-Vendor-Assessment-Kata/python/vendor1.py", line 64, in <module>
+    main(sys.argv[1:], Yatzy())
+  File "/Users/emily/workspace/training_materials/Yatzy-Vendor-Assessment-Kata/python/common.py", line 27, in main
+    score = yatzy.score(dice, category_name)
+  File "/Users/emily/workspace/training_materials/Yatzy-Vendor-Assessment-Kata/python/vendor1.py", line 41, in score
+    method_to_call = getattr(self, categoryStr)
+AttributeError: 'Yatzy' object has no attribute 'chance'
