@@ -1,12 +1,9 @@
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.yatzy.RollInput;
 import org.yatzy.vendor1.Yatzy1;
-
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -26,6 +23,5 @@ public class Vendor1Test {
         RollInput roll = calculator.parseDiceAndCategory(input);
         assertEquals(expected, calculator.score(roll.dice, roll.category));
     }
-
 
 }
